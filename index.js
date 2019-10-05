@@ -4,14 +4,6 @@ const colors = ['green', 'white', 'blue', 'red', 'purple'];
 const drinks = ['absinthe', 'beer', 'wine', 'rum', 'whiskey'];
 const heirlooms = ['Snuff Tin', 'War Medal', 'Diamond', 'Bird Pendant', 'Ring'];
 
-const characters = names.map(name => ({
-	name: name,
-	city: new Set(cities),
-	color: new Set(colors),
-	drink: new Set(drinks),
-	heirloom: new Set(heirlooms),
-}));
-
 const resultTable = document.getElementById('resultTable');
 
 init();
@@ -46,15 +38,27 @@ function init() {
 	</select>
 	`);
 
-	renderTable();
+	update();
 }
+
+Set.prototype.set = function set(value) {
+	this.clear();
+	this.add(value);
+};
 
 function update() {
+	const characters = names.map(name => ({
+		name: name,
+		city: new Set(cities),
+		color: new Set(colors),
+		drink: new Set(drinks),
+		heirloom: new Set(heirlooms),
+	}));
 
-	renderTable();
+	renderTable(characters);
 }
 
-function renderTable() {
+function renderTable(characters) {
 	for (let i = 0; i < characters.length; i++) {
 		const character = characters[i];
 		const row = resultTable.rows[i + 1];
