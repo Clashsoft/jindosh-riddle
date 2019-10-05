@@ -55,6 +55,7 @@ function update() {
 		color: new Set(colors),
 		drink: new Set(drinks),
 		heirloom: new Set(heirlooms),
+		seat: new Set([1, 2, 3, 4, 5]),
 	}));
 
 	if (values[0] && values[1]) {
@@ -93,6 +94,7 @@ function renderTable(characters) {
 		renderSet(character.color, row.cells[2]);
 		renderSet(character.drink, row.cells[3]);
 		renderSet(character.heirloom, row.cells[4]);
+		renderSet(character.seat, row.cells[5]);
 	}
 }
 
