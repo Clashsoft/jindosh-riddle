@@ -61,6 +61,9 @@ function update() {
 	if (values[0] && values[1]) {
 		setStatic(characters, values[0], c => c.color, values[1]);
 	}
+	if (values[2]) {
+		setStatic(characters, values[2], c => c.seat, 1);
+	}
 	if (values[12] && values[13]) {
 		setStatic(characters, values[12], c => c.heirloom, values[13]);
 	}
