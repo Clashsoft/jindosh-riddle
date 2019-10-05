@@ -105,7 +105,7 @@ function renderSet(set, parent) {
 	if (set.size === 1) {
 		parent.innerText = [...set][0];
 	} else {
-		parent.innerHTML = `<span class="badge badge-secondary" data-toggle="tooltip" title="${[...set].join(
+		parent.innerHTML = `<span class="badge badge-danger badge-warning badge-possibilities-${set.size}" data-toggle="tooltip" title="${[...set].join(
 			', ')}">${set.size} possibilities</span>`;
 		$(parent.children[0]).tooltip();
 	}

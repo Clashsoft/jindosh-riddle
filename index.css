@@ -1,3 +1,23 @@
 w-auto {
 	width: auto;
 }
+
+.badge-possibilities-5 {
+	color:            #fff;
+	background-color: #dc3545;
+}
+
+.badge-possibilities-4 {
+	color:            #fff;
+	background-color: #e86331;
+}
+
+.badge-possibilities-3 {
+	color:            #212529;
+	background-color: #f4931c;
+}
+
+.badge-possibilities-2 {
+	color:            #212529;
+	background-color: #ffc107;
+}
