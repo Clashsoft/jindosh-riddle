@@ -47,6 +47,8 @@ Set.prototype.set = function set(value) {
 };
 
 function update() {
+	const values = [...riddleText.getElementsByTagName('select')].map(e => e.value);
+
 	const characters = names.map(name => ({
 		name: name,
 		city: new Set(cities),
@@ -55,7 +57,30 @@ function update() {
 		heirloom: new Set(heirlooms),
 	}));
 
+	if (values[0] && values[1]) {
+		setStatic(characters, values[0], c => c.color, values[1]);
+	}
+	if (values[12] && values[13]) {
+		setStatic(characters, values[12], c => c.heirloom, values[13]);
+	}
+	if (values[19] && values[20]) {
+		setStatic(characters, values[19], c => c.drink, values[20]);
+	}
+	if (values[24] && values[25]) {
+		setStatic(characters, values[24], c => c.city, values[25]);
+	}
+
 	renderTable(characters);
+}
+
+function setStatic(characters, name, property, value) {
+	for (let c of characters) {
+		if (c.name === name) {
+			property(c).set(value);
+		} else {
+			property(c).delete(value);
+		}
+	}
 }
 
 function renderTable(characters) {
