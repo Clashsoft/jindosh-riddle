@@ -10,7 +10,7 @@
 	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<!-- Dark mode CSS -->
-	<link rel="stylesheet" href="../darkmode/darktheme.css"/>
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-darkmode@0.6.0/dist/darktheme.css">
 
 	<link rel="stylesheet" href="index.css">
 
@@ -18,7 +18,11 @@
 </head>
 <body>
 
-<script src="../darkmode/theme.js"></script>
+<script src="https://unpkg.com/bootstrap-darkmode@0.6.0/dist/theme.js"></script>
+<script>
+	const themeConfig = new ThemeConfig();
+	themeConfig.initTheme();
+</script>
 
 <noscript>
 	<div class="alert alert-warning text-center" role="alert">
@@ -119,7 +123,9 @@
 		</tbody>
 	</table>
 
-	<script src="../darkmode/darkswitch.js"></script>
+	<script>
+		writeDarkSwitch(themeConfig);
+	</script>
 </div>
 
 <!-- Optional JavaScript -->
